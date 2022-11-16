@@ -1,16 +1,18 @@
 const io= require('socket.io')({
     cors:{
         origin: 'http://localhost:5173'
-
     }
 })
 
+let count = 0;
 io.on('connection',(socket)=>{
     //usuario conectado
-    console.log('usuario conectado'+socket.id)
+    count=count+1
+    console.log('usuario conectado'+socket.id+count)
 
-    socket.on('producto estado',()=>{
-        io.emit('getproductos','eso')
+    socket.on('estado',(msg)=>{
+        console.log(msg)
+        socket.broadcast.emit('getproductos','msg')
     })
 
     //usuario desconectado
