@@ -1,4 +1,4 @@
-const io= require('socket.io')(8900,{
+const io= require('socket.io')({
     cors:{
         origin: 'http://localhost:5173'
 
@@ -22,4 +22,4 @@ io.on('connection',(socket)=>{
 }
 )
 
-io.listen(5173)
+io.listen(8900)
