@@ -4,15 +4,15 @@ const io= require('socket.io')({
     }
 })
 
-let count = 0;
+
 io.on('connection',(socket)=>{
     //usuario conectado
-    count=count+1
-    console.log('usuario conectado'+socket.id+count)
+    console.log('usuario conectado'+socket.id)
 
-    socket.on('estado',(msg)=>{
-        console.log(msg)
-        socket.broadcast.emit('getproductos','msg')
+    socket.emit("hello",  "Welcome to my website" );
+
+    socket.on('estate',(id)=>{
+        socket.broadcast.emit('cambioestado', id)
     })
 
     //usuario desconectado
