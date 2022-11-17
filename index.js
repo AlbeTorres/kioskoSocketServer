@@ -28,6 +28,7 @@ io.on('connection',(socket)=>{
         socket.broadcast.emit('cambioestado', id)
     })
 
+    //actualizar pedidos en tiempo real dashboard
     socket.on('pedido',()=>{
        
         let admin = users.filter(user=>user.admin===true)
