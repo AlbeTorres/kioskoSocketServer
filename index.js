@@ -2,7 +2,7 @@
 
 const io= require('socket.io')({
     cors:{
-        origin:"http://localhost:5173"
+        origin:"https://kioskitoartemisa.netlify.app/"
     }
 })
 const PORT = process.env.PORT || 8900;
