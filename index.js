@@ -1,8 +1,11 @@
+
+
 const io= require('socket.io')({
     cors:{
-        origin: 'http://localhost:5173'
+        origin:"http://localhost:5173"
     }
 })
+const PORT = process.env.PORT || 8900;
 
 let users=[]
 
@@ -48,4 +51,4 @@ io.on('connection',(socket)=>{
 }
 )
 
-io.listen(8900)
+io.listen(PORT)
